@@ -1,14 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import {
-  AppBar,
   CircularProgress,
   Container,
   IconButton,
   Link,
   Slider,
   Snackbar,
-  Toolbar,
 } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -46,8 +44,6 @@ import {
 } from './fair-launch';
 
 import { formatNumber, getAtaForMint, toDate } from './utils';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import GitHubIcon from '@material-ui/icons/GitHub';
 import Countdown from 'react-countdown';
 
 const ConnectButton = styled(WalletDialogButton)`
@@ -572,6 +568,9 @@ const Home = (props: HomeProps) => {
         <div>
           <Typography variant="h6" style={{ fontWeight: 900, fontSize: 24, color: 'var(--text-color)', flexGrow: 1 }}>
             #theRealLitJesus
+          </Typography>
+          <Typography>
+            Help set the price and get in on the raffle.
           </Typography>
         </div>
         <div
@@ -1190,15 +1189,15 @@ const Home = (props: HomeProps) => {
       </div>
       <div className="right">
         <div className="row">
-          <img className="image1" src="/image 26.jpeg" />
-          <img className="image2" src="/image 24.jpeg" />
+          <img alt="" className="image1" src="/image 26.jpeg" />
+          <img alt="" className="image2" src="/image 24.jpeg" />
         </div>
         <div className="row">
           <div className="image34">
-            <img className="image3" src="/image 27.jpeg" />
-            <img className="image4" src="/image 28.jpeg" />
+            <img alt="" className="image3" src="/image 27.jpeg" />
+            <img alt="" className="image4" src="/image 28.jpeg" />
           </div>
-          <img className="image5" src="/image 25.jpeg" />
+          <img alt="" className="image5" src="/image 25.jpeg" />
         </div>
       </div>
 
