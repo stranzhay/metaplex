@@ -141,6 +141,9 @@ export const getCandyMachineState = async (
   });
 
   const idl = await anchor.Program.fetchIdl(CANDY_MACHINE_PROGRAM, provider);
+  if(!idl) {
+    throw new Error('Candy machine IDL not found.')
+  }
 
   const program = new anchor.Program(idl, CANDY_MACHINE_PROGRAM, provider);
 

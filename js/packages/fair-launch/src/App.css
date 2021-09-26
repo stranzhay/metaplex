@@ -1,3 +1,76 @@
 .App {
   text-align: center;
 }
+
+.left {
+  max-width: 100%;
+  background: black;
+  --text-color: white;
+  padding: 24px;
+}
+
+.right {
+  position: relative;
+  float: left;
+  width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+}
+
+.main {
+  float: left;
+  width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+}
+
+.image1 {
+  max-width: 400px;
+  max-height: 400px;
+  width: 50%;
+  height: 50%;
+
+}
+
+.image2 {
+  max-width: 400px;
+  max-height: 400px;
+  width: 35%;
+  height: 35%;
+}
+
+.image3 {
+  max-width: 400px;
+  max-height: 400px;
+  width: 20%;
+  height: 20%;
+}
+
+.image4 {
+  max-width: 400px;
+  max-height: 400px;
+  width: 20%;
+  height: 20%;
+}
+
+.image5 {
+  max-width: 400px;
+  max-height: 400px;
+  width: 20%;
+  height: 20%;
+}
+
+@media (min-width: 1280px) {
+  .MuiContainer-maxWidthLg {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 600px) {
+  .left {
+    float: left;
+    max-width: 400px; /* The width is 20%, by default */
+    --text-color: black;
+    background: transparent;
+  }
+
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}

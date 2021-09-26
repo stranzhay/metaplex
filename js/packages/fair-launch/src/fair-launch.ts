@@ -117,6 +117,9 @@ export const getFairLaunchState = async (
   });
 
   const idl = await anchor.Program.fetchIdl(FAIR_LAUNCH_PROGRAM, provider);
+  if(!idl) {
+    throw new Error('Fair launch not found.');
+  }
 
   const program = new anchor.Program(idl, FAIR_LAUNCH_PROGRAM, provider);
   const state: any = await program.account.fairLaunch.fetch(fairLaunchId);

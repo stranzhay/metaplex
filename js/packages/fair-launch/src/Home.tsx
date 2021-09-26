@@ -511,10 +511,10 @@ const Home = (props: HomeProps) => {
   );
 
   return (
-    <Container style={{ marginTop: 100 }}>
-      <AppBar position="static" elevation={0} style={{ marginBottom: 50, background: 'transparent' }}>
+    <Container disableGutters>
+      {/* <AppBar position="static" elevation={0} style={{ marginBottom: 50, background: 'transparent' }}>
         <Toolbar>
-          <Typography variant="h6" style={{ fontWeight: 900, color: '#ECE3B1', flexGrow: 1 }}>
+          <Typography variant="h6" style={{ fontWeight: 900, fontSize: 24, color: 'black', flexGrow: 1 }}>
             #theRealLitJesus
           </Typography>
           <IconButton
@@ -532,9 +532,16 @@ const Home = (props: HomeProps) => {
             <TwitterIcon />
           </IconButton>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
 
-      <Container maxWidth="xs" style={{ position: 'relative' }}>
+
+      <div className="main" >
+        <div className="left" style={{ position: 'relative' }}>
+        <div>
+          <Typography variant="h6" style={{ fontWeight: 900, fontSize: 24, color: 'var(--text-color)', flexGrow: 1 }}>
+            #theRealLitJesus
+          </Typography>
+        </div>
         <div
           style={{
             display: 'flex',
@@ -554,8 +561,6 @@ const Home = (props: HomeProps) => {
             Anti-Rug Policy
           </Link>
         </div>
-      </Container>
-      <Container maxWidth="xs" style={{ position: 'relative' }}>
         <Paper
           style={{ padding: 24, backgroundColor: '#151A1F', borderRadius: 6 }}
         >
@@ -1105,47 +1110,42 @@ const Home = (props: HomeProps) => {
             )} */}
           </Grid>
         </Paper>
-      </Container>
 
       {fairLaunch && (
-        <Container
-          maxWidth="xs"
-          style={{ position: 'relative', marginTop: 10 }}
-        >
-          <div style={{ margin: 20 }}>
+          <div style={{ margin: 20, marginTop: 10 }}>
             <Grid container direction="row" wrap="nowrap">
               <Grid container md={4} direction="column">
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" style={{ color: 'var(--text-color)' }}>
                   Bids
                 </Typography>
                 <Typography
                   variant="h6"
                   color="textPrimary"
-                  style={{ fontWeight: 'bold' }}
+                  style={{ fontWeight: 'bold', color: 'var(--text-color)' }}
                 >
                   {fairLaunch?.state.numberTicketsSold.toNumber() || 0}
                 </Typography>
               </Grid>
               <Grid container md={4} direction="column">
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" style={{ color: 'var(--text-color)' }}>
                   Median bid
                 </Typography>
                 <Typography
                   variant="h6"
                   color="textPrimary"
-                  style={{ fontWeight: 'bold' }}
+                  style={{ fontWeight: 'bold', color: 'var(--text-color)' }}
                 >
                   ◎ {formatNumber.format(median)}
                 </Typography>
               </Grid>
               <Grid container md={4} direction="column">
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" style={{ color: 'var(--text-color)' }}>
                   Total raised
                 </Typography>
                 <Typography
                   variant="h6"
                   color="textPrimary"
-                  style={{ fontWeight: 'bold' }}
+                  style={{ fontWeight: 'bold', color: 'black' }}
                 >
                   ◎{' '}
                   {formatNumber.format(
@@ -1155,8 +1155,17 @@ const Home = (props: HomeProps) => {
               </Grid>
             </Grid>
           </div>
-        </Container>
       )}
+      </div>
+      {/* <div className="right">
+        <img className="image1" src="/image 24.png" />
+        <img className="image2" src="/image 25.png" />
+        <img className="image3" src="/image 26.png" />
+        <img className="image4" src="/image 27.png" />
+        <img className="image5" src="/image 28.png" />
+      </div> */}
+
+      </div>
       <Snackbar
         open={alertState.open}
         autoHideDuration={6000}
