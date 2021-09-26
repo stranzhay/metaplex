@@ -57,20 +57,21 @@ const App = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current
+    let observer: ResizeObserver;
+
     if(canvas) {
       const context = canvas.getContext('2d');
       if(context) {
-        const dpr = window.devicePixelRatio || 1;
-        const rect = canvas.getBoundingClientRect(); // css
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
-        context.scale(dpr, dpr);
-
-        //Our first draw
-        context.fillStyle = '#000000'
-        context.fillRect(0, 0, context.canvas.width, context.canvas.height)
-
         const render = () => {
+          const dpr = window.devicePixelRatio || 1;
+          const rect = canvas.getBoundingClientRect(); // css
+          canvas.width = rect.width * dpr;
+          canvas.height = rect.height * dpr;
+          context.scale(dpr, dpr);
+          context.fillStyle = '#000000'
+          context.fillRect(0, 0, context.canvas.width, context.canvas.height)
+
+
           const imageHeight = imageRef.current.height;
           const imageWidth = imageRef.current.width;
 
@@ -97,8 +98,19 @@ const App = () => {
 
         imageRef.current.onload = render;
         imageRef.current.src = 'bg.png';
+
+        // observer = new ResizeObserver(render);
+
+        // let root= window.document.getElementById('root');
+        // if(root) {
+        //   observer.observe(root);
+        // }
       }
     }
+
+    return () => {
+      observer?.disconnect();
+    };
   }, []);
 
   return (

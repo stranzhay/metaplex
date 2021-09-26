@@ -25,7 +25,7 @@ import Alert from '@material-ui/lab/Alert';
 
 import * as anchor from '@project-serum/anchor';
 
-import { LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { Keypair, LAMPORTS_PER_SOL } from '@solana/web3.js';
 
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletDialogButton } from '@solana/wallet-adapter-material-ui';
@@ -240,19 +240,10 @@ const Home = (props: HomeProps) => {
   const wallet = useWallet();
 
   const anchorWallet = useMemo(() => {
-    if (
-      !wallet ||
-      !wallet.publicKey ||
-      !wallet.signAllTransactions ||
-      !wallet.signTransaction
-    ) {
-      return;
-    }
-
     return {
-      publicKey: wallet.publicKey,
-      signAllTransactions: wallet.signAllTransactions,
-      signTransaction: wallet.signTransaction,
+      publicKey: wallet?.publicKey || (new Keypair()).publicKey,
+      signAllTransactions: wallet.signAllTransactions || (async (txs) => txs),
+      signTransaction: wallet.signTransaction || (async (txs) => txs),
     } as anchor.Wallet;
   }, [wallet]);
 
@@ -557,6 +548,7 @@ const Home = (props: HomeProps) => {
           <Typography variant="h6" style={{ fontWeight: 900, fontSize: 24, color: 'black', flexGrow: 1 }}>
             #theRealLitJesus
           </Typography>
+
           <IconButton
             edge="end"
             color="inherit"
@@ -592,8 +584,8 @@ const Home = (props: HomeProps) => {
           <Link
             component="button"
             variant="body2"
-            color="textSecondary"
             align="right"
+            style={{ color: 'var(--secondary-text-color)' }}
             onClick={() => {
               setAnitRugPolicyOpen(true);
             }}
@@ -758,7 +750,7 @@ const Home = (props: HomeProps) => {
                       </Alert>
                     </div>
                   )}
-                {notEnoughSOL && (
+                {wallet.connected && notEnoughSOL && (
                   <Alert severity="error">
                     You do not have enough SOL in your account to place this
                     bid.
@@ -1196,13 +1188,19 @@ const Home = (props: HomeProps) => {
           </div>
       )}
       </div>
-      {/* <div className="right">
-        <img className="image1" src="/image 24.png" />
-        <img className="image2" src="/image 25.png" />
-        <img className="image3" src="/image 26.png" />
-        <img className="image4" src="/image 27.png" />
-        <img className="image5" src="/image 28.png" />
-      </div> */}
+      <div className="right">
+        <div className="row">
+          <img className="image1" src="/image 26.jpeg" />
+          <img className="image2" src="/image 24.jpeg" />
+        </div>
+        <div className="row">
+          <div className="image34">
+            <img className="image3" src="/image 27.jpeg" />
+            <img className="image4" src="/image 28.jpeg" />
+          </div>
+          <img className="image5" src="/image 25.jpeg" />
+        </div>
+      </div>
 
       </div>
       <Snackbar
