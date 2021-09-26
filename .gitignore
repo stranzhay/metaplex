@@ -1,4 +1,5 @@
 node_modules/
+loot/
 .anchor
 **/*.rs.bk
 build/
