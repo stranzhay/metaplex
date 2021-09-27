@@ -80,8 +80,13 @@ const App = () => {
           context.fillRect(0, 0, context.canvas.width, context.canvas.height)
 
 
+
           const imageHeight = imageRef.current.height;
           const imageWidth = imageRef.current.width;
+
+          if (imageHeight === 0 || imageWidth === 0) {
+            return;
+          }
 
           const height = Math.ceil(canvas.height / imageHeight);
           const width = Math.ceil(canvas.width / imageWidth);
