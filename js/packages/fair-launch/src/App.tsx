@@ -20,8 +20,16 @@ import {
 import { WalletDialogProvider } from '@solana/wallet-adapter-material-ui';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import { ConfettiProvider } from './confetti';
+import '@fontsource/lato/300.css';
+import '@fontsource/lato/400.css';
+import '@fontsource/lato/700.css';
+import '@fontsource/lato/900.css';
+
 
 const theme = createTheme({
+  typography: {
+    fontFamily: 'Lato, Arial',
+  },
   palette: {
     type: 'dark',
   },
@@ -99,12 +107,12 @@ const App = () => {
         imageRef.current.onload = render;
         imageRef.current.src = 'bg.png';
 
-        // observer = new ResizeObserver(render);
+        observer = new ResizeObserver(render);
 
-        // let root= window.document.getElementById('root');
-        // if(root) {
-        //   observer.observe(root);
-        // }
+        let root= window.document.getElementById('root');
+        if(root) {
+          observer.observe(root);
+        }
       }
     }
 

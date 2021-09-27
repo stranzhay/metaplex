@@ -569,7 +569,7 @@ const Home = (props: HomeProps) => {
           <Typography variant="h6" style={{ fontWeight: 900, fontSize: 24, color: 'var(--text-color)', flexGrow: 1 }}>
             #theRealLitJesus
           </Typography>
-          <Typography>
+          <Typography  variant="h6" style={{ fontWeight: 900, lineHeight: '38.4px', padding: '20px 0px', fontSize: 32, color: 'var(--text-color)', flexGrow: 1 }}>
             Help set the price and get in on the raffle.
           </Typography>
         </div>
@@ -578,6 +578,7 @@ const Home = (props: HomeProps) => {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'flex-end',
+            marginRight: 5
           }}
         >
           <Link
@@ -682,16 +683,14 @@ const Home = (props: HomeProps) => {
                     </Typography>
                   </>
                 ) : [Phase.Phase0, Phase.Phase1].includes(phase) ? (
-                  <Typography>
+                  <Typography style={{ textAlign: 'center'}}>
                     You haven't entered this raffle yet. <br />
                     {fairLaunch?.state?.data?.fee && (
                       <span>
-                        <b>
                           All initial bids will incur a ◎{' '}
-                          {fairLaunch?.state?.data?.fee.toNumber() /
-                            LAMPORTS_PER_SOL}{' '}
+                          <b>{fairLaunch?.state?.data?.fee.toNumber() /
+                            LAMPORTS_PER_SOL}{' '}</b>
                           fee.
-                        </b>
                       </span>
                     )}
                   </Typography>
@@ -1188,11 +1187,17 @@ const Home = (props: HomeProps) => {
       )}
       </div>
       <div className="right">
-        <div className="row">
+        {/* <div className="row" >
+          <div className="banner">
+          My name is Lit Jesus. I make art and love people. I am on a mission to bring great art and high vibes onto this earth plane and help people in the process. Be nice to one another.
+          </div>
+
+        </div> */}
+        <div className="row" style={{ alignItems: 'flex-end' }}>
           <img alt="" className="image1" src="/image 26.jpeg" />
           <img alt="" className="image2" src="/image 24.jpeg" />
         </div>
-        <div className="row">
+        <div className="row" style={{ alignItems: 'flex-start' }}>
           <div className="image34">
             <img alt="" className="image3" src="/image 27.jpeg" />
             <img alt="" className="image4" src="/image 28.jpeg" />
