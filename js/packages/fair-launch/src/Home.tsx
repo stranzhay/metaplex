@@ -357,10 +357,15 @@ const Home = (props: HomeProps) => {
           console.log('Problem getting fair launch token balance');
           console.log(e);
         }
-        setContributed(
-          (
+        let maxAmount = state.state.data.priceRangeEnd.toNumber() / LAMPORTS_PER_SOL;
+        let currentAmount = (
             state.state.currentMedian || state.state.data.priceRangeStart
-          ).toNumber() / LAMPORTS_PER_SOL,
+          ).toNumber() / LAMPORTS_PER_SOL;
+
+        setContributed(
+          getPhase(state, undefined) === Phase.Phase1 ?
+          Math.min(currentAmount * 1.4, maxAmount) :
+          currentAmount,
         );
       } catch (e) {
         console.log('Problem getting fair launch state');
